@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import AppFrame from './../components/AppFrame';
 import CustomersActions from './../components/CustomersActions';
 
+
 class HomeContainer extends Component {
+	handleOnClick = () => {
+
+		this.props.history.push('/customers');
+	}
 	render() {
 		return (
 			<div>
@@ -14,7 +19,8 @@ class HomeContainer extends Component {
 						<div>
 							Esta es la pantalla inicial
 							<CustomersActions>
-								<Link to="/customers">Listado de clientes</Link>
+								<button onClick={this.handleOnClick}>Listado de clientes</button>
+
 							</CustomersActions>
 						</div>
 					}
@@ -28,4 +34,4 @@ HomeContainer.propTypes = {
 
 };
 
-export default HomeContainer;
+export default withRouter(HomeContainer);
