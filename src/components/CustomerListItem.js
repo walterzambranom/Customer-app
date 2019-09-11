@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const CustomerListItem = ({ name, editAction, delAction, urlPath, dni }) => {
@@ -13,10 +13,9 @@ const CustomerListItem = ({ name, editAction, delAction, urlPath, dni }) => {
 					<Link to={`${urlPath}${dni}/edit`} >{editAction}</Link>
 				</div>
 				<div className="field">
-					<Link to={`${urlPath}/delete`} >{delAction}</Link>
+					<Link to={`${urlPath}${dni}/del`} >{delAction}</Link>
 				</div>
 			</div>
-
 		</div>
 	);
 };
