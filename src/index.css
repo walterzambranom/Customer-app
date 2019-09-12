@@ -16,7 +16,7 @@ code {
 	margin: 5%;
 	padding: 30px;
 	width: calc(80vw);
-	background-image: -webkit-gradient(linear, left top, left bottom, from (#666), to(#777))
+	background: aliceblue;
 }
 
 .customers-actions {
@@ -31,4 +31,23 @@ code {
 	min-width: 100px;
 	height: 30px;
 	margin: 5px;
+	border-style: none;
+	border-radius: 3px;
+	font-weight: bolder;
+}
+
+.customers-list-item .field {
+	width: 160px;
+	margin: 1px;
+	padding: 4px;
+	overflow: hidden;
+	display: inline-block;
+	line-height: 40px;
+}
+
+.customers-list .customers-list-item {
+	width: 100%;
+	background: #FFF;
+	transition: 500ms;
+	height: 40px;
 }
