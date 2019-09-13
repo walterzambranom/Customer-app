@@ -6,24 +6,8 @@ import AppFrame from '../components/AppFrame';
 import CustomersActions from '../components/CustomersActions';
 import CustomersList from './../components/CustomersList';
 import { fetchCustomers } from '../actions/fetchCustomers';
+import {getCustomers} from './../selectors/customers';
 
-const customers = [
-	{
-		"dni": "1144049862",
-		"name": "Walter Zambrano",
-		"age": 27
-	},
-	{
-		"dni": "1107063435",
-		"name": "Gloria Zambrano",
-		"age": 28
-	},
-	{
-		"dni": "31861042",
-		"name": "Martha Morales",
-		"age": 56
-	}
-];
 class CustomersContainer extends Component {
 	componentDidMount() {
 		this.props.fetchCustomers();
@@ -50,7 +34,7 @@ class CustomersContainer extends Component {
 		return (
 			<div>
 				<AppFrame header={'Listado de clientes'}
-					body={this.renderBody(customers)} ></AppFrame>
+					body={this.renderBody(this.props.customers)} ></AppFrame>
 			</div>
 		);
 	}
@@ -58,8 +42,14 @@ class CustomersContainer extends Component {
 
 CustomersContainer.propTypes = {
 	fetchCustomers: PropTypes.func.isRequired,
+	customers: PropTypes.array.isRequired,
 };
 
+CustomersContainer.defaultProps = {
+	customers: []
+};
 
-
-export default withRouter(connect(null, { fetchCustomers })(CustomersContainer));
+const mapStateToProps = state => ({
+	customers: getCustomers(state)
+})
+export default withRouter(connect(mapStateToProps, { fetchCustomers })(CustomersContainer));
