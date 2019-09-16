@@ -4,24 +4,23 @@ import { Component } from 'react';
 import HomeContainer from './containers/HomeContainer';
 import './App.css';
 import CustomersContainer from './containers/CustomersContainer';
+import CustomerContainer from './containers/CustomerContainer';
 
 class App extends Component {
 
-	renderHome = () => <HomeContainer />;
-	renderCustomerContainer = () => <h1>Customer Container</h1>;
-	renderCustomerListContainer = () => <CustomersContainer />;
 	renderCustomerNewContainer = () => <h1>Customer New Container</h1>
 
 	render() {
 		return (
 			<Router>
 				<div>
-					<Route exact path="/" component={this.renderHome} />
-					<Route exact path="/customers" component={this.renderCustomerListContainer} />
+					<Route exact path="/" component={HomeContainer} />
+					<Route exact path="/customers" component={CustomersContainer} />
 					<Switch>
 
 						<Route exact path="/customers/new" component={this.renderCustomerNewContainer} />
-						<Route exact path="/customers/:dni" component={this.renderCustomerContainer} />
+						<Route exact path="/customers/:dni"
+							render={props => <CustomerContainer dni={props.match.params.dni} />} />
 					</Switch>
 
 				</div>
