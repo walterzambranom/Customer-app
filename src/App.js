@@ -18,8 +18,8 @@ class App extends Component {
 					<Route exact path="/customers" component={CustomersContainer} />
 					<Switch>
 
-						<Route exact path="/customers/new" component={this.renderCustomerNewContainer} />
-						<Route exact path="/customers/:dni"
+						<Route path="/customers/new" component={this.renderCustomerNewContainer} />
+						<Route path="/customers/:dni"
 							render={props => <CustomerContainer dni={props.match.params.dni} />} />
 					</Switch>
 
