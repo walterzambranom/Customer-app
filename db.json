@@ -1,31 +1,39 @@
 {
-	"customers": [{
-			"dni": "1144049862",
-			"name": "Walter Zambrano",
-			"age": 27
-		},
-		{
-			"dni": "1107063435",
-			"name": "Gloria Zambrano",
-			"age": 28
-		},
-		{
-			"dni": "31861042",
-			"name": "Martha Morales",
-			"age": 56
-		}
-	],
-	"posts": [{
-		"id": 1,
-		"title": "json-server",
-		"author": "typicode"
-	}],
-	"comments": [{
-		"id": 1,
-		"body": "some comment",
-		"postId": 1
-	}],
-	"profile": {
-		"name": "typicode"
-	}
+  "customers": [
+    {
+      "id": "1144049862",
+      "dni": "1144049862",
+      "name": "Haminson Gonzaliaz",
+      "age": 27
+    },
+    {
+      "id": "1107063435",
+      "dni": "1107063435",
+      "name": "Gloria Zambrano",
+      "age": 28
+    },
+    {
+      "id": "31861042",
+      "dni": "31861042",
+      "name": "Martha Morales",
+      "age": 56
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
 }
