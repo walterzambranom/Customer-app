@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { reduxForm, Field } from 'redux-form';
+import { Prompt } from 'react-router-dom';
 import { setPropsAsInitial } from './../helpers/setPropsAsInitial';
 import CustomersActions from './CustomersActions';
 
@@ -32,10 +33,10 @@ const MyField = ({ input, meta, type, label, name }) => (
 );
 const toNumber = value => value && Number(value);
 const onlyGrow = (value, previousValue, values) =>
-	value && previousValue && (value > previousValue ? value : previousValue);
+	value && (!previousValue ? value : (value > previousValue ? value : previousValue));
 
 
-const CustomerEdit = ({ name, dni, age, handleSubmit, submitting, onBack }) => {
+const CustomerEdit = ({ name, dni, age, handleSubmit, submitting, onBack, pristine, submitSucceeded }) => {
 	return (
 		<div>
 			<h2>Nombre del cliente</h2>
@@ -61,9 +62,13 @@ const CustomerEdit = ({ name, dni, age, handleSubmit, submitting, onBack }) => {
 					parse={toNumber}
 					normalize={onlyGrow}></Field>
 				<CustomersActions>
-					<button type="submit" disable={submitting}>Aceptar</button>
-					<button onClick={onBack}>Cancelar</button>
+					<button type="submit" disable={pristine || submitting}>Aceptar</button>
+					<button type="button" disable={submitting} onClick={onBack}>Cancelar</button>
 				</CustomersActions>
+				<Prompt
+					when={!pristine && !submitSucceeded}
+					message="Se perderan los datos si continúa"></Prompt>
+
 			</form>
 		</div>
 	);
