@@ -6,11 +6,14 @@ import AppFrame from '../components/AppFrame';
 import CustomersActions from '../components/CustomersActions';
 import CustomersList from './../components/CustomersList';
 import { fetchCustomers } from '../actions/fetchCustomers';
-import {getCustomers} from './../selectors/customers';
+import { getCustomers } from './../selectors/customers';
 
 class CustomersContainer extends Component {
+
 	componentDidMount() {
-		this.props.fetchCustomers();
+		if (this.props.customers.length === 0) {
+			this.props.fetchCustomers();
+		}
 	}
 
 
